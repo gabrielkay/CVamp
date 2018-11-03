@@ -3,6 +3,7 @@
 #include <string>
 
 
+//add typedefs
 
 Resume::Resume(){
 }
@@ -11,6 +12,30 @@ Resume::Resume(std::string &word){
 }
 
 void Resume::processFile(std::string &resumeFile){
+    std::string str;
+    std::ifstream file(resumeFile.c_str());
+    if (!file){
+        std::cout<<"Sorry, your resume could not be opened properly, press enter to exit this program"<<std::endl;
+        getline(std::cin, str);  // consume existing line
+        std::cin.get();  // get the key press
+        exit(1);
+    }
+    std::string word;
+    while (file >> word){
+        wordCount++;
+        analyzeWord(word);
+        word = toLowerCase(word);
+        if (passive.count(nextWord) > 0){
+            //TODO define passiveUsed as a RepeatCounter
+            ++passiveUsed[word];
+        }
+        if (commonList.count(nextWord > 0) || word.length() == 0){
+            continue;
+        }
+        else {
+            //add word to overall wordcount map
+        }
+
 }
 
 void Resume::validEmail(const std::string &word){
@@ -37,12 +62,15 @@ void Resume::toLowerCase(std::string &word) {
             if (word[i] == '@'){
                 validEmail(word);
             }
-            char changer = word[i];
-            word[i] = std::tolower(changer);
+            if (word[i] != '.' && word[i] != '@'){
+                char changer = word[i];
+                word[i] = std::tolower(changer);
+            }
         }
     }
 }
 
+//in analyze word, make sure the word is in the dictionary. Also check if it is a phone number. Can move that chunk of code that checks the passive voice into here.
 void Resume::analyzeWord(){
 }
 

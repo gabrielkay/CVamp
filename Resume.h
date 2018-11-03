@@ -1,11 +1,10 @@
-
-
 class Resume {
 private:
     bool hasValidEmail;
     bool hasAddress;
     bool hasPhone;
     std::string resumeFile; //read inFile
+    int wordCount;
 public:
     //Default Constructor
     Resume();
