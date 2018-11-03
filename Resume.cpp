@@ -51,6 +51,18 @@ void Resume::validEmail(const std::string &word){
 }
 
 void Resume::validPhone(const std::string &word){
+        bool check = true;
+        if (word.size() != 10) {
+            check = false;
+        }
+        else {
+            for (int i = 0; i < 10; i++) {
+                if (!isdigit(word[i])) {
+                    check = false;
+                }
+            }
+        }
+        hasPhone = check;
 }
 
 void Resume::validAddress(const std::string &word){
