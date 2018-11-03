@@ -85,7 +85,6 @@ void Resume::analyzeWord(std::string &word){
 
 }
 
-
 bool Resume::getValidEmail(std::string word){
     size_t location = word.find('@');
     if(location > 0){
