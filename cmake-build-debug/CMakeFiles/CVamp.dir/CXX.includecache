@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././Resume.h
+iostream
+-
+set
+-
+map
+-
+
+C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/Resume.cpp
+iostream
+-
+Resume.h
+-
+string
+-
+
+C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/main.cpp
+cstdlib
+-
+cmath
+-
+map
+-
+set
+-
+string
+-
+locale
+-
+iostream
+-
+fstream
+-
+

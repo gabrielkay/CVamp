@@ -1,6 +1,8 @@
 #include <iostream>
 #include <Resume.h>
 #include <string>
+#include <sstream>
+#include <fstream>
 
 
 //add typedefs
@@ -23,14 +25,20 @@ void Resume::processFile(std::string &resumeFile) {
         exit(1);
     }
     std::string word;
-    while (file >> word) {
-        wordCount++;
-        analyzeWord(word);
-        word = toLowerCase(word);
-        if (commonList.count(nextWord > 0) || word.length() == 0) {
-            continue;
-        } else {
-            //add word to overall wordcount map
+    std::string line;
+    while (std::getline(file, line)) {
+
+        //line methods (passive, address)
+        std::istringstream lineStream(line);
+        while (lineStream >> word) {
+            wordCount++;
+            analyzeWord(word);
+            word = toLowerCase(word);
+            if (commonList.count(nextWord > 0) || word.length() == 0) {
+                continue;
+            } else {
+                //add word to overall wordcount map
+            }
         }
     }
 }
@@ -104,10 +112,8 @@ void Resume::analyzeWord(std::string &word){
     if (dictionary.count(word) < 1){
         ++spelledWrong[word];
     }
-    word = toLowerCase(word);
-    if (word.length() == 10){
-        //check to see if its all numbers
-    }
+    word = toLowerCase(word);-
+    validPhone(word); //calls validPhone, added by Nihar
 
 }
 

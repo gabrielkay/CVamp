@@ -7,6 +7,5 @@ include_directories(.)
 
 add_executable(CVamp
         main.cpp
-        README.md
         Resume.cpp
         Resume.h)
