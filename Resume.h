@@ -34,7 +34,7 @@ public:
     void validEmail(const std::string &word);
 
     //updates hasAddress bool
-    void validAddress(const std::string &word);
+    void validAddress(const std::string &inputLine);
 
     //updates hasPhone
     void validPhone(const std::string &word);
