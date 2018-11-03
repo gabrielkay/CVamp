@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CVamp.dir/main.cpp.o"
-  "CMakeFiles/CVamp.dir/Resume.cpp.o"
+  "CMakeFiles/CVamp.dir/main.cpp.obj"
+  "CMakeFiles/CVamp.dir/Resume.cpp.obj"
   "CVamp.pdb"
-  "CVamp"
+  "CVamp.exe"
+  "CVamp.exe.manifest"
+  "libCVamp.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
