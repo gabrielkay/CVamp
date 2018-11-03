@@ -25,10 +25,6 @@ void Resume::processFile(std::string &resumeFile){
         wordCount++;
         analyzeWord(word);
         word = toLowerCase(word);
-        if (passive.count(nextWord) > 0){
-            //TODO define passiveUsed as a RepeatCounter
-            ++passiveUsed[word];
-        }
         if (commonList.count(nextWord > 0) || word.length() == 0){
             continue;
         }
@@ -71,7 +67,21 @@ void Resume::toLowerCase(std::string &word) {
 }
 
 //in analyze word, make sure the word is in the dictionary. Also check if it is a phone number. Can move that chunk of code that checks the passive voice into here.
-void Resume::analyzeWord(){
+void Resume::analyzeWord(&word){
+    //TODO let this method have access to the Dictionary
+    //TODO make private/public class variables of RepeatCounters for Passive voice and spelling errors
+    if (passive.count(word) > 0){
+        //TODO define passiveUsed as a RepeatCounter
+        ++passiveUsed[word];
+    }
+    if (dictionary.count(word) < 1){
+        ++spelledWrong[word];
+    }
+    word = toLowerCase(word);
+    if (word.length() == 10){
+        //check to see if its all numbers
+    }
+
 }
 
 bool Resume::getValidEmail(){
