@@ -7,10 +7,10 @@
 
 //add typedefs
 
-Resume::Resume() : hasValidEmail(false), hasAddress(false), hasPhone(false), resumeFile(""),
-wordCount(0){}
+Resume::Resume() : hasValidEmail(false), hasAddress(false), hasPhone(false), resumeFile(""), wordCount(0){
+}
 
-Resume::Resume(std::string &word){
+Resume::Resume(std::string &word) : hasValidEmail(false), hasAddress(false), hasPhone(false), resumeFile(word), wordCount(0){
 }
 
 void Resume::processFile(std::string &resumeFile) {
