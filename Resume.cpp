@@ -36,6 +36,18 @@ void Resume::processFile(std::string &resumeFile) {
 }
 
 void Resume::validEmail(const std::string &word){
+    size_t location = word.find('@');
+    if(location > 0){
+        std::string str2 = str.substr(location);
+        size_t location2 = str2.find('.');
+    }
+
+    if((location > 0) && (location2 > 0) && location2 != (word.length() -1)){
+        hasValidEmail = true;
+    }
+    else{
+        hasValidEmail = false;
+    }
 }
 
 void Resume::validPhone(const std::string &word){
@@ -88,6 +100,7 @@ void Resume::analyzeWord(std::string &word){
 bool Resume::getValidEmail(){
     return hasValidEmail;
 }
+
 
 bool Resume::getHasAddress(){
     return hasAddress;
