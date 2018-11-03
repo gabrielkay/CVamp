@@ -5,33 +5,34 @@
 
 //add typedefs
 
-Resume::Resume(){
-}
+Resume::Resume() : hasValidEmail(false), hasAddress(false), hasPhone(false), resumeFile(""),
+wordCount(0){}
 
 Resume::Resume(std::string &word){
 }
 
-void Resume::processFile(std::string &resumeFile){
+void Resume::processFile(std::string &resumeFile) {
     std::string str;
     std::ifstream file(resumeFile.c_str());
-    if (!file){
-        std::cout<<"Sorry, your resume could not be opened properly, press enter to exit this program"<<std::endl;
+    if (!file) {
+        std::cout
+                << "Sorry, your resume could not be opened properly, press enter to exit this program"
+                << std::endl;
         getline(std::cin, str);  // consume existing line
         std::cin.get();  // get the key press
         exit(1);
     }
     std::string word;
-    while (file >> word){
+    while (file >> word) {
         wordCount++;
         analyzeWord(word);
         word = toLowerCase(word);
-        if (commonList.count(nextWord > 0) || word.length() == 0){
+        if (commonList.count(nextWord > 0) || word.length() == 0) {
             continue;
-        }
-        else {
+        } else {
             //add word to overall wordcount map
         }
-
+    }
 }
 
 void Resume::validEmail(const std::string &word){
@@ -40,7 +41,7 @@ void Resume::validEmail(const std::string &word){
 void Resume::validPhone(const std::string &word){
 }
 
-void Resume::validAddress(){
+void Resume::validAddress(const std::string &word){
 }
 
 
@@ -67,7 +68,7 @@ void Resume::toLowerCase(std::string &word) {
 }
 
 //in analyze word, make sure the word is in the dictionary. Also check if it is a phone number. Can move that chunk of code that checks the passive voice into here.
-void Resume::analyzeWord(&word){
+void Resume::analyzeWord(std::string &word){
     //TODO let this method have access to the Dictionary
     //TODO make private/public class variables of RepeatCounters for Passive voice and spelling errors
     if (passive.count(word) > 0){
@@ -85,10 +86,14 @@ void Resume::analyzeWord(&word){
 }
 
 bool Resume::getValidEmail(){
+    return hasValidEmail;
 }
 
 bool Resume::getHasAddress(){
+    return hasAddress;
 }
 
+
 bool Resume::getHasPhone(){
+    return hasPhone;
 }
