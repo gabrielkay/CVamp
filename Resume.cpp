@@ -85,9 +85,17 @@ void Resume::analyzeWord(std::string &word){
 
 }
 
-bool Resume::getValidEmail(){
-    return hasValidEmail;
+
+bool Resume::getValidEmail(std::string word){
+    size_t location = word.find('@');
+    if(location > 0){
+        std::string str2 = str.substr(location);
+        size_t location2 = str2.find('.');
+    }
+
+    return (location > 0) && (location2 > 0);
 }
+
 
 bool Resume::getHasAddress(){
     return hasAddress;
