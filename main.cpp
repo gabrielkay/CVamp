@@ -10,11 +10,6 @@
 typedef std::set<std::string> WordSet;
 typedef std::map<std::string, int> RepeatCounter;
 
-WordSet readDictionary(){
-    //TODO
-    return dictionary;
-}
-
 int main() {
         WordSet dictionary = readDictionary();
         std::string resumeFile = "";
