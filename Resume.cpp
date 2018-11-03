@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include <Resume.h>
+
 void Resume::toLowerCase(std::string &word) {
     for (size_t i = 0; i < word.length(); i++){
         if (word.length() > 0) {

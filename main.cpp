@@ -10,7 +10,7 @@
 typedef std::set<std::string> WordSet;
 typedef std::map<std::string, int> RepeatCounter;
 
-Wordset readDictionary(){
+WordSet readDictionary(){
     //TODO
     return dictionary;
 }
@@ -20,7 +20,7 @@ int main() {
         std::string resumeFile = "";
         std::cout << "Please enter the name/path of the file to be processed." << std::endl;
         std::cin >> resumeFile;
-        Resume resume1(resumeFile);
+        Resume resume1(&resumeFile);
         //METHODS PERFORMED ON RESUME BELOW
         //resume.____;
 
