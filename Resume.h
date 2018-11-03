@@ -1,3 +1,14 @@
+#include <iostream>
+#include <set>
+#include <map>
+
+#ifndef RESUME_H
+#define RESUME_H
+
+typedef std::set<std::string> WordSet;
+typedef std::map<std::string, int> RepeatCounter;
+
+
 class Resume {
 private:
     bool hasValidEmail;
@@ -6,6 +17,7 @@ private:
     std::string resumeFile; //read inFile
     int wordCount;
 public:
+
     //Default Constructor
     Resume();
 
@@ -39,3 +51,5 @@ public:
     bool getHasPhone();
 
 };
+
+#endif
