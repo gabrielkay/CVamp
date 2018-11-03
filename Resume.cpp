@@ -7,20 +7,36 @@
 
 //add typedefs
 
-Resume::Resume() : hasValidEmail(false), hasAddress(false), hasPhone(false), resumeFile(""), wordCount(0){
-}
+Resume::Resume() : hasValidEmail(false), hasAddress(false), hasPhone(false), resumeFile(""),
+wordCount(0){}
 
-Resume::Resume(std::string &word) : hasValidEmail(false), hasAddress(false), hasPhone(false), resumeFile(word), wordCount(0){
+Resume::Resume(std::string &word){
 }
 
 void Resume::processFile(std::string &resumeFile) {
-    std::string str;
+
+    std::string str1;
+    std::ifstream dictFile("words_alpha.txt");
+    if (!dictFile) {
+        std::cout
+                << "Sorry, we encountered an error opening the dictionary, press enter to exit this program"
+                << std::endl;
+        getline(std::cin, str1);  // consume existing line
+        std::cin.get();  // get the key press
+        exit(1);
+    }
+    std::string dictWordIn;
+    while (dictFile >> dictWordIn){
+        ++dictionary[dictWordIn];
+    }
+
+    std::string str2;
     std::ifstream file(resumeFile.c_str());
     if (!file) {
         std::cout
                 << "Sorry, your resume could not be opened properly, press enter to exit this program"
                 << std::endl;
-        getline(std::cin, str);  // consume existing line
+        getline(std::cin, str2);  // consume existing line
         std::cin.get();  // get the key press
         exit(1);
     }
@@ -33,10 +49,12 @@ void Resume::processFile(std::string &resumeFile) {
             wordCount++;
             analyzeWord(word);
             word = toLowerCase(word);
-            if (commonList.count(nextWord > 0) || word.length() == 0) {
-                continue;
-            } else {
-                ++allWords[word];
+            if (word.length() == 0) {
+                if (dictionary.count(word) > 0){
+                    ++allWords[word];
+                } else {
+                    ++spellingErrors[word];
+                }
             }
         }
     }
