@@ -1,0 +1,3 @@
+C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/cmake-build-debug/CMakeFiles/CVamp.dir
+C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
