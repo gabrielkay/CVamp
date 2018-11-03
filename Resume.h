@@ -35,7 +35,7 @@ public:
     void analyzeWord();
 
     //accessor methods for private variables
-    bool getValidEmail();
+    bool getValidEmail(std::string word);
     bool getHasAddress();
     bool getHasPhone();
 
