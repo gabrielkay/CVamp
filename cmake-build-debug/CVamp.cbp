@@ -84,9 +84,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/README.md">
-			<Option target="CVamp"/>
-		</Unit>
 		<Unit filename="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/Resume.cpp">
 			<Option target="CVamp"/>
 		</Unit>
