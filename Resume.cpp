@@ -47,7 +47,7 @@ void Resume::validEmail(const std::string &word){
     }
     else{
         hasValidEmail = false;
-    };
+    }
 }
 
 void Resume::validPhone(const std::string &word){
@@ -97,8 +97,8 @@ void Resume::analyzeWord(std::string &word){
 
 }
 
-bool Resume::getValidEmail(std::string word){
-return hasValidEmail
+bool Resume::getValidEmail(){
+    return hasValidEmail;
 }
 
 
