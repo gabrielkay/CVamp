@@ -27,7 +27,6 @@ void Resume::processFile(std::string &resumeFile) {
     std::string word;
     std::string line;
     while (std::getline(file, line)) {
-
         //line methods (passive, address)
         std::istringstream lineStream(line);
         while (lineStream >> word) {
@@ -37,7 +36,7 @@ void Resume::processFile(std::string &resumeFile) {
             if (commonList.count(nextWord > 0) || word.length() == 0) {
                 continue;
             } else {
-                //add word to overall wordcount map
+                ++allWords[word];
             }
         }
     }
