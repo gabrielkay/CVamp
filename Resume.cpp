@@ -150,7 +150,7 @@ void Resume::analyzeWord(std::string &word){
     if (dictionary.count(word) < 1){
         ++spelledWrong[word];
     }
-    word = toLowerCase(word);-
+    word = toLowerCase(word);
     validPhone(word); //calls validPhone, added by Nihar
 
 }
