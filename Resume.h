@@ -1,3 +1,14 @@
+#include <iostream>
+#include <set>
+#include <map>
+
+#ifndef RESUME_H
+#define RESUME_H
+
+typedef std::set<std::string> WordSet;
+typedef std::map<std::string, int> RepeatCounter;
+
+
 class Resume {
 private:
     bool hasValidEmail;
@@ -6,6 +17,7 @@ private:
     std::string resumeFile; //read inFile
     int wordCount;
 public:
+
     //Default Constructor
     Resume();
 
@@ -22,16 +34,16 @@ public:
     void validEmail(const std::string &word);
 
     //updates hasAddress bool
-    void validAddress();
+    void validAddress(const std::string &word);
 
     //updates hasPhone
-    void validPhone();
+    void validPhone(const std::string &word);
 
     //Change everything to lowercase except @ and .
     void toLowerCase(std::string &word);
 
     //Checks passive, checks address, checks email, checks phone number, calls toLowercase
-    void analyzeWord();
+    void analyzeWord(std::string &word);
 
     //accessor methods for private variables
     bool getValidEmail();
@@ -39,3 +51,5 @@ public:
     bool getHasPhone();
 
 };
+
+#endif
