@@ -62,7 +62,9 @@ void Resume::validPhone(const std::string &word){
                 }
             }
         }
-        hasPhone = check;
+        if (check) {
+            hasPhone = true;
+        }
 }
 
 void Resume::validAddress(const std::string &word){
