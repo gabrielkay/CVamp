@@ -3,6 +3,8 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <cctype>
+#include <set>
 
 
 //add typedefs
@@ -40,12 +42,13 @@ void Resume::processFile(std::string &resumeFile) {
     std::string word;
     std::string line;
     while (std::getline(file, line)) {
+        validAddress(line);
         //line methods (passive, address)
         std::istringstream lineStream(line);
         while (lineStream >> word) {
             wordCount++;
             analyzeWord(word);
-            word = toLowerCase(word);
+            toLowerCase(word);
             if (word.length() == 0) {
                 if (dictionary.count(word) > 0){
                     ++allWords[word];
@@ -89,7 +92,43 @@ void Resume::validPhone(const std::string &word){
         }
 }
 
-void Resume::validAddress(const std::string &word){
+void Resume::validAddress(const std::string &inputLine){
+    WordSet state;
+    std::string fname = "StateAbbreviations.txt";
+    std::string str;
+    std::ifstream file(fname.c_str());
+    if (!file) {
+        std::cout << "Unable to open file. Press enter to exit program";
+        getline(std::cin, str); //consume existing line
+        std::cin.get(); //get key press
+        exit(1);
+    }
+    std::string fileWord, lineWord, lineNextWord;
+    while (file >> fileWord){
+        toLowerCase(fileWord);
+        ++state[fileWord];
+    }
+
+    std::istringstream lineStream(inputLine);
+    bool check(true);
+    while (lineStream >> lineWord) {
+        //if state code
+        if (state.count(lineWord) > 0){
+            if (lineStream >> lineNextWord){
+                if (lineNextWord.size() == 5){
+                    for (size_t i = 0; i < 5; i++) {
+                        if (!isdigit(lineNextWord[0])) {
+                            check = false;
+                        }
+                    }
+                    if (check){
+                        hasAddress = true;
+                    }
+                }
+            }
+        }
+    }
+    file.close();
 }
 
 
@@ -126,7 +165,7 @@ void Resume::analyzeWord(std::string &word){
     if (dictionary.count(word) < 1){
         ++spelledWrong[word];
     }
-    word = toLowerCase(word);-
+    word = toLowerCase(word);
     validPhone(word); //calls validPhone, added by Nihar
 
 }
