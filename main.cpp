@@ -16,8 +16,7 @@ int main() {
         std::cout << "Please enter the name/path of the file to be processed." << std::endl;
         std::cin >> resumeFile;
         Resume resume1(&resumeFile);
-        //METHODS PERFORMED ON RESUME BELOW
-        //resume.____;
+        resume1.processFile();
 
         if(getValidEmail){
             std::cout<<"Your resume has a properly formatted email address" << std::endl;
@@ -36,8 +35,5 @@ int main() {
         } else {
             std::cout<<"Your resume does not have a properly formatted phone number" << std::endl;
         }
-
-
-
         return 0;
 }

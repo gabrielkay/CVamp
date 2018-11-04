@@ -22,9 +22,6 @@ private:
     RepeatCounter passiveWords;
 public:
 
-    //Default Constructor
-    Resume();
-
     //Alt Constructor
     Resume(std::string &word);
 
@@ -32,7 +29,7 @@ public:
     //While in a while loop of processing, calls to Lowercase, maps all words to a big map, maps
     //verbs to a verb map,
     //maps to words and verbs and checks passive voice
-    void processFile(std::string &resumeFile);
+    void processFile();
 
     //updates hasValidEmail bool
     void validEmail(const std::string &word);
@@ -53,7 +50,6 @@ public:
     bool getValidEmail();
     bool getHasAddress();
     bool getHasPhone();
-
 };
 
 #endif
