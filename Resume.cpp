@@ -1,10 +1,13 @@
 #include <iostream>
-#include <Resume.h>
+#include "Resume.h"
 #include <string>
 #include <sstream>
 #include <fstream>
 #include <cctype>
 #include <set>
+#include <map>
+#include <cstdlib>
+#include <locale>
 
 
 Resume::Resume(std::string &word) : hasValidEmail(false), hasAddress(false), hasPhone(false), resumeFile(word), wordCount(0) {
@@ -24,7 +27,7 @@ void Resume::processFile() {
     }
     std::string dictWordIn;
     while (dictFile >> dictWordIn){
-        ++dictionary[dictWordIn];
+        dictionary.insert(dictWordIn);
     }
 
     std::string str2;
@@ -60,9 +63,10 @@ void Resume::processFile() {
 
 void Resume::validEmail(const std::string &word){
     size_t location = word.find('@');
+    size_t location2;
     if(location > 0){
-        std::string str2 = str.substr(location);
-        size_t location2 = str2.find('.');
+        std::string str2 = word.substr(location);
+        location2 = str2.find('.');
     }
 
     if((location > 0) && (location2 > 0) && location2 != (word.length() -1)){
@@ -104,7 +108,7 @@ void Resume::validAddress(const std::string &inputLine){
     std::string fileWord, lineWord, lineNextWord;
     while (file >> fileWord){
         toLowerCase(fileWord);
-        ++state[fileWord];
+        state.insert(fileWord);
     }
 
     std::istringstream lineStream(inputLine);
@@ -153,7 +157,7 @@ void Resume::toLowerCase(std::string &word) {
 }
 
 void Resume::analyzeWord(std::string &word){
-    word = toLowerCase(word);
+    toLowerCase(word);
     validPhone(word); //calls validPhone, added by Nihar
 }
 
