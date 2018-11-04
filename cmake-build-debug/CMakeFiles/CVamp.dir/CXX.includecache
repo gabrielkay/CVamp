@@ -6,37 +6,33 @@
 
 #IncludeRegexTransform: 
 
-.././Resume.h
-iostream
--
-set
--
-map
--
-
 C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/Resume.cpp
 iostream
 -
 Resume.h
--
+C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/Resume.h
 string
 -
-
-C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/main.cpp
-cstdlib
+sstream
 -
-cmath
+fstream
 -
-map
+cctype
 -
 set
 -
-string
+map
+-
+cstdlib
 -
 locale
 -
+
+C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/Resume.h
 iostream
 -
-fstream
+set
+-
+map
 -
 

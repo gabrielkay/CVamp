@@ -18,8 +18,8 @@
 				</MakeCommands>
 			</Target>
 			<Target title="CVamp">
-				<Option output="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/cmake-build-debug/CVamp.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/cmake-build-debug"/>
+				<Option output="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/CVamp.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -41,8 +41,8 @@
 				</MakeCommands>
 			</Target>
 			<Target title="CVamp/fast">
-				<Option output="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/cmake-build-debug/CVamp.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/cmake-build-debug"/>
+				<Option output="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp/CVamp.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Nihar Patel/CLion Projects/VandyHacks V/CVamp"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
