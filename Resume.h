@@ -15,12 +15,12 @@ private:
     bool hasAddress;
     bool hasPhone;
     std::string resumeFile; //read inFile
+public:
     int wordCount;
     WordSet dictionary;
     RepeatCounter allWords;
     RepeatCounter spellingErrors;
     RepeatCounter passiveWords;
-public:
 
     //Alt Constructor
     Resume(std::string &word);
