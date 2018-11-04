@@ -7,12 +7,10 @@
 #include <set>
 
 
-//add typedefs
-
 Resume::Resume(std::string &word) : hasValidEmail(false), hasAddress(false), hasPhone(false), resumeFile(word), wordCount(0) {
 }
 
-void Resume::processFile(std::string &resumeFile) {
+void Resume::processFile() {
 
     std::string str1;
     std::ifstream dictFile("words_alpha.txt");
@@ -154,20 +152,9 @@ void Resume::toLowerCase(std::string &word) {
     }
 }
 
-//in analyze word, make sure the word is in the dictionary. Also check if it is a phone number. Can move that chunk of code that checks the passive voice into here.
 void Resume::analyzeWord(std::string &word){
-    //TODO let this method have access to the Dictionary
-    //TODO make private/public class variables of RepeatCounters for Passive voice and spelling errors
-    if (passive.count(word) > 0){
-        //TODO define passiveUsed as a RepeatCounter
-        ++passiveUsed[word];
-    }
-    if (dictionary.count(word) < 1){
-        ++spelledWrong[word];
-    }
     word = toLowerCase(word);
     validPhone(word); //calls validPhone, added by Nihar
-
 }
 
 bool Resume::getValidEmail(){
