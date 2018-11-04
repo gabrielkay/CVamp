@@ -144,6 +144,9 @@ void Resume::validAddress(const std::string &inputLine){
 void Resume::toLowerCase(std::string &word) {
     for (size_t i = 0; i < word.length(); i++){
         if (word.length() > 0) {
+            if (word[i] == '(' || word[i] == ')' || word[i] == '-' || word[i] == '.') {
+               word = word.substr(0, i) + word.substr(i + 1);
+            }
             if (word[i] == '@'){
                 validEmail(word);
             }
