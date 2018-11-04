@@ -107,7 +107,6 @@ void Resume::validAddress(const std::string &inputLine){
     }
     std::string fileWord, lineWord, lineNextWord;
     while (file >> fileWord){
-        toLowerCase(fileWord);
         state.insert(fileWord);
     }
 
@@ -119,7 +118,7 @@ void Resume::validAddress(const std::string &inputLine){
             if (lineStream >> lineNextWord){
                 if (lineNextWord.size() == 5){
                     for (size_t i = 0; i < 5; i++) {
-                        if (!isdigit(lineNextWord[0])) {
+                        if (!isdigit(lineNextWord[i])) {
                             check = false;
                         }
                     }
@@ -145,6 +144,9 @@ void Resume::validAddress(const std::string &inputLine){
 void Resume::toLowerCase(std::string &word) {
     for (size_t i = 0; i < word.length(); i++){
         if (word.length() > 0) {
+            if (word[i] == '(' || word[i] == ')' || word[i] == '-' || word[i] == '.') {
+               word = word.substr(0, i) + word.substr(i + 1);
+            }
             if (word[i] == '@'){
                 validEmail(word);
             }
