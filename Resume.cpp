@@ -50,7 +50,7 @@ void Resume::processFile() {
             wordCount++;
             analyzeWord(word);
             toLowerCase(word);
-            if (word.length() == 0) {
+            if (word.length() != 0) {
                 if (dictionary.count(word) > 0){
                     ++allWords[word];
                 } else {
@@ -144,16 +144,14 @@ void Resume::validAddress(const std::string &inputLine){
 void Resume::toLowerCase(std::string &word) {
     for (size_t i = 0; i < word.length(); i++){
         if (word.length() > 0) {
-            if (word[i] == '(' || word[i] == ')' || word[i] == '-' || word[i] == '.') {
-                word = word.substr(0, i) + word.substr(i + 1);
-            }
             if (word[i] == '@'){
                 validEmail(word);
             }
-            if (word[i] != '.' && word[i] != '@'){
-                char changer = word[i];
-                word[i] = std::tolower(changer);
+            if (!isalpha(word[i]) && !isdigit(word[i])){
+                word = word.substr(0, i) + word.substr(i + 1);
             }
+            char changer = word[i];
+            word[i] = std::tolower(changer);
         }
     }
 }
