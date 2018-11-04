@@ -16,7 +16,7 @@ private:
     bool hasPhone;
     std::string resumeFile; //read inFile
     int wordCount;
-    Wordset dictionary;
+    WordSet dictionary;
     RepeatCounter allWords;
     RepeatCounter spellingErrors;
     RepeatCounter passiveWords;
