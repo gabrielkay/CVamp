@@ -17,7 +17,7 @@ void Resume::processFile() {
 
     std::string str1;
     std::ifstream dictFile("words_alpha.txt");
-    if (dictFile.fail()) {
+    if (!dictFile) {
         std::cout
                 << "Sorry, we encountered an error opening the dictionary, press enter to exit this program"
                 << std::endl;
