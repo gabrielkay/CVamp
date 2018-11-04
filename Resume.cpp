@@ -17,7 +17,7 @@ void Resume::processFile() {
 
     std::string str1;
     std::ifstream dictFile("words_alpha.txt");
-    if (!dictFile) {
+    if (dictFile.fail()) {
         std::cout
                 << "Sorry, we encountered an error opening the dictionary, press enter to exit this program"
                 << std::endl;
@@ -145,7 +145,7 @@ void Resume::toLowerCase(std::string &word) {
     for (size_t i = 0; i < word.length(); i++){
         if (word.length() > 0) {
             if (word[i] == '(' || word[i] == ')' || word[i] == '-' || word[i] == '.') {
-               word = word.substr(0, i) + word.substr(i + 1);
+                word = word.substr(0, i) + word.substr(i + 1);
             }
             if (word[i] == '@'){
                 validEmail(word);

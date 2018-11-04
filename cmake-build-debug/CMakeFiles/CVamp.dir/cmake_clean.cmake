@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CVamp.dir/main.cpp.obj"
   "CMakeFiles/CVamp.dir/Resume.cpp.obj"
-  "CVamp.pdb"
-  "CVamp.exe"
-  "CVamp.exe.manifest"
+  "../CVamp.pdb"
+  "../CVamp.exe"
+  "../CVamp.exe.manifest"
   "libCVamp.dll.a"
 )
 
